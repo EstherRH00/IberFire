@@ -31,6 +31,12 @@ Exploració del dataset [IberFire](https://ekoizpen-zientifikoa.ehu.eus/document
 ## 1. On i quan s’han produït incendis a Espanya entre 2007 i 2024? 
 Primerament veurem on s’han produit incendis al llarg del temps, utilitzant la variable is_fire. 
 
+_Com que pywidgets no permet exportar els widgets interactius, i la quantitat de dades és excessiva per Git LFS, he adjuntat captures de pantalla del widget_
+
+|![Mapa](./img/mapa1.png)|![Mapa](./img/mapa2.png)|
+|-|-|
+|Visualització del mapa|Datepicker per triar la data mostrada|
+
 ## 2. Quines condicions meteorològiques i de vegetació precedeixen un incendi? 
 Per respondre-la, entendrem quines característiques hi havia al terreny els cinc dies abans de l'incendi: 
 * LAI
@@ -46,3 +52,48 @@ Dels anys que inclou el dataset, 2022 va ser el que presenta més incendis. Per 
 ![Superficie cremada per anys](./img/grafica2022.png)
 
 ### Primerament estudiem segons si forma part, o no de la [Xarxa Natura 2000](https://www.miteco.gob.es/es/biodiversidad/temas/espacios-protegidos/red-natura-2000.html)
+
+|![Violin plots](./img/natura1.png)|Checkboxes i primers violin plots|
+|![Violin plots](./img/natura2.png)|Violin plots|
+|![Violin plots](./img/natura2.png)|Violin plots|
+
+### Seguidament, segons el projecte [Corine Land Cover](https://land.copernicus.eu/en/products/corine-land-cover)
+
+Prenem, per cada quilòmetre quadrat, l'etiqueta amb major valor percentual
+
+|![Violin plots](./img/clc1.png)|Checkboxes, dropdown i primers violin plots|
+|![Violin plots](./img/clc2.png)|Violin plots|
+|![Violin plots](./img/clc3.png)|Violin plots|
+
+## 3. Com influeix el tipus de terreny a la quantitat d'incendis i la seva durada?
+Tindrem en compte les característiques del terreny i la durada de l’incendi: així veurem si són més fàcils de controlar en terrenys més inclinats, més baixos, etc. fent servir les variables elevation<…>, slope<...>, roughness<...> i aspect.
+
+|![Rose plot](./img/rose.png)|
+|-|
+|Quantitat i durada dels incendis segons direcció de l'inclinació del terreny (`ASPECT`)|
+
+|![Bubble plots](./img/bubble.png)|
+|-|
+|Quantitat i durada dels incendis segons alçada, pendent i rugositat del terreny|
+
+## 4. Els incendis són més recurrents en zones poc poblades o poc comunicades? 
+Veurem els incendis en relació amb la densitat de població (popdens_20<....>), la comunicació del terreny (dist_to<...>) i n’estudiarem la freqüència. . Així veurem si la durada dels incendis  té relació amb com d’urbanitzat està un terreny. Pel que fa a la densitat de població, com que només tenim 2 anys, farem mitjanes ponderades assumint un canvi lineal.
+
+
+|![Bar plot](./img/barplot.png)|
+|-|
+|Quantitat i durada dels incendis segons densitat de població|
+
+|![Heat bubble plots](./img/bubble.png)|
+|-|
+|Quantitat i durada dels incendis segons distància a carreteres i fonts d'aigua|
+
+## 5. A Catalunya, la quantitat de bombers és proporcional a la quantitat d'incendis? 
+Veurem els detalls urbans: ens centrarem en Catalunya i la quantitat de parcs de bombers, relacionant-ne la quantitat amb la freqüència i durada dels incendis.
+
+Ho fem combinant el dataset que tenim amb les dades de [la quantitat de bombers i bombers voluntaris l'any 2022 a Catalunya](https://analisi.transparenciacatalunya.cat/Seguretat/Parcs-de-bombers-per-regi-d-emerg-ncies/8ymu-ma9b/about_data)
+
+
+|![Map with bubbles](./img/map_firefighters.png)|
+|-|
+|Quantitat d'incendis i de bombers en cada una de les Regions d'Emergències de Catalunya|
