@@ -53,20 +53,24 @@ Dels anys que inclou el dataset, 2022 va ser el que presenta més incendis. Per 
 
 ### Primerament estudiem segons si forma part, o no de la [Xarxa Natura 2000](https://www.miteco.gob.es/es/biodiversidad/temas/espacios-protegidos/red-natura-2000.html)
 
-|![Violin plots](./img/natura1.png)|Checkboxes i primers violin plots|
-|![Violin plots](./img/natura2.png)|Violin plots|
-|![Violin plots](./img/natura2.png)|Violin plots|
+|Checkboxes i violin plots|
+|-|
+|![Violin plots](./img/natura1.png)|
+|![Violin plots](./img/natura2.png)|
+|![Violin plots](./img/natura2.png)|
 
 ### Seguidament, segons el projecte [Corine Land Cover](https://land.copernicus.eu/en/products/corine-land-cover)
 
 Prenem, per cada quilòmetre quadrat, l'etiqueta amb major valor percentual
 
-|![Violin plots](./img/clc1.png)|Checkboxes, dropdown i primers violin plots|
-|![Violin plots](./img/clc2.png)|Violin plots|
-|![Violin plots](./img/clc3.png)|Violin plots|
+|Checkboxes, dropdown i violin plots|
+|-|
+|![Violin plots](./img/clc1.png)|
+|![Violin plots](./img/clc2.png)|
+|![Violin plots](./img/clc3.png)|
 
 ## 3. Com influeix el tipus de terreny a la quantitat d'incendis i la seva durada?
-Tindrem en compte les característiques del terreny i la durada de l’incendi: així veurem si són més fàcils de controlar en terrenys més inclinats, més baixos, etc. fent servir les variables elevation<…>, slope<...>, roughness<...> i aspect.
+Tindrem en compte les característiques del terreny i la durada de l’incendi: així veurem si són més fàcils de controlar en terrenys més inclinats, més baixos, etc. fent servir les variables `elevation<…>`, `slope<...>`, `roughness<...>` i `aspect`.
 
 |![Rose plot](./img/rose.png)|
 |-|
@@ -77,7 +81,7 @@ Tindrem en compte les característiques del terreny i la durada de l’incendi: 
 |Quantitat i durada dels incendis segons alçada, pendent i rugositat del terreny|
 
 ## 4. Els incendis són més recurrents en zones poc poblades o poc comunicades? 
-Veurem els incendis en relació amb la densitat de població (popdens_20<....>), la comunicació del terreny (dist_to<...>) i n’estudiarem la freqüència. . Així veurem si la durada dels incendis  té relació amb com d’urbanitzat està un terreny. Pel que fa a la densitat de població, com que només tenim 2 anys, farem mitjanes ponderades assumint un canvi lineal.
+Veurem els incendis en relació amb la densitat de població (`popdens_20<....>`), la comunicació del terreny (`dist_to<...>`) i n’estudiarem la freqüència. . Així veurem si la durada dels incendis  té relació amb com d’urbanitzat està un terreny. Pel que fa a la densitat de població, com que només tenim 2 anys, farem mitjanes ponderades assumint un canvi lineal.
 
 
 |![Bar plot](./img/barplot.png)|
@@ -97,3 +101,16 @@ Ho fem combinant el dataset que tenim amb les dades de [la quantitat de bombers 
 |![Map with bubbles](./img/map_firefighters.png)|
 |-|
 |Quantitat d'incendis i de bombers en cada una de les Regions d'Emergències de Catalunya|
+
+# Conclusions
+
+* Els dies abans d'un incendi:
+  * El fullatge per metre quadrat incrementa.
+  * El percentatge d'aigua al sol incrementa, però només a les capes superiors.
+  * La temperatura incrementa i la humitat a l'aire baixa notablement.
+  * La direcció del vent mostra canvis sobtats.
+* Trobem més incendis quan el terreny està inclinat cap al Nord-Oest i cap al Sud-Est.
+* Trobem més focs en terrenys inclinats.
+* Els incendis són més comuns i duren més allà on la densitat de població és baixa.
+* La distància a fonts d'aigua té més impacte a la distància a carreteres en la durada dels incendis.
+* Les regions amb més incendis tenen més bombers, però les regions amb més bombers no tenen més incendis.
